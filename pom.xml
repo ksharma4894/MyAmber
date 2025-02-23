@@ -109,12 +109,14 @@
 			<scope>test</scope>
 		</dependency>
 
-
+<!-- 
 		<dependency>
 			<groupId>com.inteview</groupId>
 			<artifactId>interview</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+-->	
+	
 	</dependencies>
 
 	<build>
