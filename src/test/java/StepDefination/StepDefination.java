@@ -165,7 +165,7 @@ public class StepDefination {
 	public void user_clicks_on_the_google_play_button() {
 		softAssrt.assertEquals(featuePage.googlePlayRedirection(),
 				"https://play.google.com/store/apps/details?id=com.app.myambar");
-		driver.close();
+		//driver.close();
 
 		driver.switchTo().window(myAmberWindowId);
 		// driver.close();
