@@ -116,7 +116,7 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	<!-- 
+	
 	<build>
 		<plugins> -->
 	<!-- Surefire Plugin to Run TestNG Tests -->
@@ -127,10 +127,10 @@
 				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>
-	C:/Users/singity/eclipse-workspace1/PrintFinder_TestNG/execute.xml</suiteXmlFile>
+	C:\Users\singity\eclipse-workspace1\myamber\SanityCheck.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
-	</build> -->
+	</build> 
 </project>
