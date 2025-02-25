@@ -72,6 +72,8 @@ public class HomePage {
 	
 	@FindBy(id = "loginbutton")
 	WebElement loginBtn;
+	
+	@FindBy(xpath = "//a[text()=' My Profile ']") WebElement myProfile;
 
 	public void skipGuide() {
 
@@ -159,6 +161,7 @@ public class HomePage {
 		nxtBtn.click();
 		wait.until(ExpectedConditions.numberOfWindowsToBe(1));
 		ldriver.switchTo().window(amberid);
+		wait.until(ExpectedConditions.visibilityOf(myProfile));
 	}
 
 }

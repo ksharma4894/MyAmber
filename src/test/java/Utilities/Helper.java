@@ -17,6 +17,7 @@ import PageObject.BrowserPage;
 public class Helper {
 
 	WebDriver driver;
+	public static JavascriptExecutor js;
 
 	// Method for taking the softAssert
 	public static SoftAssert softAssert() {
@@ -32,6 +33,13 @@ public class Helper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public void JavascriptExecutor()
+	{
+		
+		 js = (JavascriptExecutor) driver;
 	}
 
 }

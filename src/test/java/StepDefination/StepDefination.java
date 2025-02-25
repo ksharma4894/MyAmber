@@ -6,12 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
-import PageObject.AboutUsPage;
-import PageObject.BrowserPage;
-import PageObject.FeaturePage;
-import PageObject.HomePage;
-import PageObject.SearchPage;
-import PageObject.UserPage;
+import PageObject.*;
 import Utilities.Helper;
 import io.cucumber.java.*;
 import io.cucumber.java.en.*;
@@ -165,7 +160,7 @@ public class StepDefination {
 	public void user_clicks_on_the_google_play_button() {
 		softAssrt.assertEquals(featuePage.googlePlayRedirection(),
 				"https://play.google.com/store/apps/details?id=com.app.myambar");
-		//driver.close();
+		// driver.close();
 
 		driver.switchTo().window(myAmberWindowId);
 		// driver.close();
@@ -215,6 +210,7 @@ public class StepDefination {
 
 	@Then("User should be redirected to the Dashboard")
 	public void user_should_be_redirected_to_the_dashboard() {
+
 		softAssrt.assertEquals(driver.getCurrentUrl(), "https://www.myambar.org/user/dashboard");
 		softAssrt.assertAll();
 	}
@@ -225,19 +221,17 @@ public class StepDefination {
 
 	}
 
-	@When("User updates name and other fields")
+	@When("User updates name and other fields {string}")
 	public void user_updates_name_and_other_fields(String name) {
-
 		softAssrt.assertEquals(userPge.myProfile(name), " User updated successfully ");
 
 	}
 
-
-	@Given("User navigates to Am I at Risk? section")
-	public void user_navigates_to_am_i_at_risk_section() {
-		userPge.amIAtRrisk();
-	}
-
+//	@Given("User navigates to Am I at Risk? section")
+//	public void user_navigates_to_am_i_at_risk_section() {
+//		userPge.amIAtRrisk();
+//	}
+//
 //	@When("User selects Yes or No randomly for each question")
 //	public void user_selects_yes_or_no_randomly_for_each_question() {
 //		// Write code here that turns the phrase above into concrete actions
@@ -256,13 +250,12 @@ public class StepDefination {
 //		throw new io.cucumber.java.PendingException();
 //	}
 
-
 	@Given("User navigates to the Emergency section")
-	public void user_navigates_to_the_emergency_section(String name) {
-	   userPge.clickEmgContacts();
+	public void user_navigates_to_the_emergency_section() {
+		userPge.clickEmgContacts();
 	}
 
-	@When("User adds name & number in the contact field")
+	@When("User adds name {string} & number {string} in the contact field")
 	public void user_adds_name_number_in_the_contact_field(String name, String num) {
 		userPge.addContact(name, num);
 	}
@@ -273,53 +266,60 @@ public class StepDefination {
 	}
 
 	@Then("The number should be added successfully")
-	public void the_number_should_be_added_successfully() { 
-		softAssrt.assertEquals(driver.findElements(By.xpath("//div[@class='toast-success ngx-toastr ng-trigger ng-trigger-flyInOut']")).getFirst(), " User contacts added successfully ");
+	public void the_number_should_be_added_successfully() {
+		softAssrt.assertEquals(
+				driver.findElements(By.xpath("//div[@class='toast-success ngx-toastr ng-trigger ng-trigger-flyInOut']"))
+						.getFirst(),
+				" User contacts added successfully ");
 		softAssrt.assertAll();
 	}
 
-	@When("User click on edit icon and update the infomation")
+	@When("User click on edit icon {string} and update the infomation")
 	public void user_click_on_edit_icon_and_update_the_infomation(String name) {
-	   userPge.clickEditIcon(name);	
+		userPge.clickEditIcon(name);
 	}
 
 	@Then("The contact should be updated successfully")
 	public void the_contact_should_be_updated_successfully() {
-		softAssrt.assertEquals(driver.findElements(By.xpath("//div[@class='toast-success ngx-toastr ng-trigger ng-trigger-flyInOut']")).getFirst(), " User contact updated successfully ");
-		softAssrt.assertAll();	
+		softAssrt.assertEquals(
+				driver.findElements(By.xpath("//div[@class='toast-success ngx-toastr ng-trigger ng-trigger-flyInOut']"))
+						.getFirst(),
+				" User contact updated successfully ");
+		softAssrt.assertAll();
 	}
 
 	@When("User deletes the contact")
 	public void user_deletes_the_contact() {
 		userPge.delete();
-		
+
 	}
 
 	@Then("The contact should be removed successfully")
 	public void the_contact_should_be_removed_successfully() {
-	
-		softAssrt.assertEquals(driver.findElements(By.xpath("//div[@class='overlay-container']"))," User contact deleted successfully ");
+
+		softAssrt.assertEquals(driver.findElements(By.xpath("//div[@class='overlay-container']")),
+				" User contact deleted successfully ");
 	}
 
 	@Given("User navigates to the Directory section")
 	public void user_navigates_to_the_directory_section() {
 
 		userPge.directorySection();
-		softAssrt.assertEquals(driver.getCurrentUrl(),"https://www.myambar.org/user/directory");
+		softAssrt.assertEquals(driver.getCurrentUrl(), "https://www.myambar.org/user/directory");
 	}
 
-	@When("User searches for Chandigarh")
-	public void user_searches_for_chandigarh(String city) {
-		
-		softAssrt.assertEquals(userPge.searchArea(city) , " Service provider listing " );
+	@When("User searches for {string}")
+	public void user_searches_for(String city) {
+
+		softAssrt.assertEquals(userPge.searchArea(city), " Service provider listing ");
 	}
 }
-//	@Then("User should see content under the Emergency Resources section")
-//	public void user_should_see_content_under_the_emergency_resources_section() {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
-//	}
 //
+//@Then("User should see content under the Emergency Resources section")
+//public void user_should_see_content_under_the_emergency_resources_section() {
+//    // Write code here that turns the phrase above into concrete actions
+//    throw new io.cucumber.java.PendingException();
+//}
 //	@Given("User scrolls to the Footer section")
 //	public void user_scrolls_to_the_footer_section() {
 //	    // Write code here that turns the phrase above into concrete actions

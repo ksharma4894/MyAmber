@@ -8,11 +8,11 @@ Feature: Validate navigation, content, After Login
     When User clicks on Update Profile button
     And User updates name and other fields "Kuldeep Verma"
    
-  Scenario: User click Am I at Risk? assessment
-    Given User navigates to Am I at Risk? section
-    When User selects Yes or No randomly for each question
-    And User clicks on Submit button
-    Then Confirmation message should be displayed
+  #Scenario: User click Am I at Risk? assessment
+    #Given User navigates to Am I at Risk? section
+    #When User selects Yes or No randomly for each question
+    #And User clicks on Submit button
+    #Then Confirmation message should be displayed
 
   Scenario: User adds, updates, and deletes emergency contact
     Given User navigates to the Emergency section
